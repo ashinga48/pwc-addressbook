@@ -1,0 +1,24 @@
+{
+  "name": "addressbook",
+  "version": "1.0.0",
+  "description": "manage address book",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon app.js -q",
+    "test": "npm test"
+  },
+  "keywords": [
+    "addressbook",
+    "pwc"
+  ],
+  "author": "Ravi Teja Kesanam (kesanam.ravi@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
