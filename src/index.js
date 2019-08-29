@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => res.send('Running!'));
 
 app.post('/add', (req, res) => {
-  res.send('Hello World!')
+  res.send(req.body)
 })
 
 app.listen(8080, () => {
