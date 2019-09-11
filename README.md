@@ -5,7 +5,8 @@
 ## Setup
 
 - ```npm install```
-- ```npm start```
+- ```npm start``` & open http://localhost:8080 in browser
+- ```npm run test```
 
 ## How it works
 
