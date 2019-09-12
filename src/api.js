@@ -26,10 +26,15 @@ const apiHandler = (app, db) => {
          * check if params is empty 
          */
         if(Object.keys(params).length <= 0){
-            return "No params sent";
+            res.send("No params sent");
         }
         
         const result = await db.add( params.name, params.phone );
+
+        // if submission comes from UI redirect to home else return JSON response
+        if(params.isform){
+            res.redirect('/?success=true');
+        }
         res.send(result);
     };
     app.post('/api/insert', addContact);
@@ -41,7 +46,22 @@ const apiHandler = (app, db) => {
     app.get('/api/delete', async (req, res) => {
         try{
             await db.removeDatabase();
-            res.send('File deleted');
+            // res.send('File deleted');
+            res.redirect('/');
+        }catch(e){
+            res.send('File does not exist')
+        }
+    });
+
+    /** 
+     * export contacts.csv to download
+     */
+    app.get('/api/export', async (req, res) => {
+        try{
+            var filePath = "contacts.csv"; // Or format the path using the `id` rest param
+            var fileName = "contacts.csv"; // The default name the browser will use
+
+            res.download(filePath, fileName);
         }catch(e){
             res.send('File does not exist')
         }

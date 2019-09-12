@@ -22,36 +22,14 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
   {{!-- <link rel="stylesheet" href="/style.css"> --}}
 
-
 </head>
 <body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-  <div class="section values">
-    <div class="container">
-      <br/><br/>
-      <h2>Step 1: Create Address Book {{ title }} </h2>
-      
-    </div>
-  </div>
+  {{{ body }}}
 
-  <div class="section categories">
-    <div class="container">
-      <div class="row">
-        
-        {{!-- left column --}}
-        {{partial 'partials/add_contact' }}
-
-        {{!-- right column  --}}
-        {{partial 'partials/all_contacts' }}
-
-      </div>
-    </div>
-  </div>
-
-
+{{partial 'partials/footer' }}
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>

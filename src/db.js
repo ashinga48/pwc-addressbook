@@ -22,7 +22,7 @@ class database {
      * init db with fields phone and name
      */
     async load() {
-        this.db = await csvdb(DATABASE_NAME, ["phone","name"]);
+        this.db = await csvdb(DATABASE_NAME, ["phone","name"], ",");
         return true;
     }
 

@@ -1,0 +1,30 @@
+<div class="section categories">
+<div class="container">
+
+    <br/><a href="/" ><h3>🔙 Home</h3></a><br/>
+
+    <div class="row">
+    
+    {{!-- left column --}}
+    <div class="one-half column category">
+    <h3 class="section-heading">Compare Address books</h3>
+    <p class="section-description">Find Unique Contacts in two address books</p>
+
+    <blockquote>Note: Comparison happens between phone numbers not by names</blockquote>
+
+    <form method="POST" action="/compare" enctype="multipart/form-data" >
+    <fieldset>
+        <label for="nameField">Choose Address book 1</label>
+        <input name="addressbook1" type="file" required accept=".csv"/>
+        <label for="nameField">Choose Address book 2</label>
+        <input name="addressbook2" type="file" required accept=".csv"/>
+        <input class="button-primary" type="submit" value="Compare">
+    </fieldset>
+    </form>
+
+    </div>
+    
+
+    </div>
+</div>
+</div>

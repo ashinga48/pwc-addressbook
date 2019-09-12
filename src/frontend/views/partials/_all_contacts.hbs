@@ -1,7 +1,10 @@
 {{!-- right column --}}
-<div class="one-half column category">
+<blockquote class="one-half column category">
+<div class="padLeft20">
+    {{#unless noHeader}}
     <h3 class="section-heading">All Contacts</h3>
     <p class="section-description">This section shows all the current address book contacts</p>
+    {{/unless}}
 
     <table>
     <thead>
@@ -19,4 +22,5 @@
     </table>
 
 </div>
+</blockquote>
 {{!-- end of right column --}}

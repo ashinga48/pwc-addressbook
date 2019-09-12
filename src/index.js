@@ -11,6 +11,9 @@ app.engine('hbs', exbars({defaultLayout: 'main' , viewsPath: 'src/frontend/views
 app.set('views', 'src/frontend/views');
 app.set('view engine', 'hbs');
 
+const upload = require("express-fileupload")
+app.use(upload());
+
 /** Expose public folder static files */
 // var path = require('path');
 // app.use('/static', express.static(path.join(__dirname, 'public')))

@@ -1,8 +1,30 @@
 {{!-- left column --}}
 <div class="one-half column category">
-    <h3 class="section-heading">Add Contact</h3>
+    <h3 class="section-heading">Step 1️⃣ : Add Contact</h3>
     <p class="section-description">Enter Name, Phone and submit, check your contact added in the right side </p>
 
+
+    <form method="GET" action="/api/insert">
+    <fieldset>
+        <label for="nameField">Name</label>
+        <input name="name" type="text" placeholder="enter name" id="name">
+        <label for="phone">Phone</label>
+        <input name="phone" type="text" placeholder="enter phone number" id="phone" />
+        <input name="isform" type="hidden" value="form">
+        <input class="button-primary" type="submit" value="Save Contact">
+    </fieldset>
+    </form>
+
+
+    {{#if query.success}}
+    <h4 class="section-heading">✅ Contact added successfully!</h4>
+    {{/if}}
+
+    {{!-- export --}}
+    {{partial 'partials/export' }}
+    
+    {{!-- compare --}}
+    {{partial 'partials/compare' }}
 
 </div>
 {{!-- end of left column --}}
