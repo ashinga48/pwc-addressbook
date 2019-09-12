@@ -1,0 +1,22 @@
+{{!-- right column --}}
+<div class="one-half column category">
+    <h3 class="section-heading">All Contacts</h3>
+    <p class="section-description">This section shows all the current address book contacts</p>
+
+    <table>
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{!-- loop each contact from address book --}}
+    {{#each contacts}}
+        {{partial 'partials/contact' name=name phone=phone }}
+    {{/each}}
+    </tbody>
+    </table>
+
+</div>
+{{!-- end of right column --}}

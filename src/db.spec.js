@@ -67,29 +67,3 @@ describe('CSV Database Test Suite', () => {
 
 
 });
-
-// describe('CSV Database Tests ', () => {
-
-//   /** Database */
-//   const db = require('./db');
-//   (async () => {
-//       db.load();
-//   })();
-
-//   describe('get a contact', (done) => {
-//     it('should return details of user', async () => {
-//       const data = await db.getAll();
-//       console.log(data);
-//     });
-
-//   })
-
-//   describe('get a contact', (done) => {
-//     it('should return details of user', async () => {
-//       const data = await db.get();
-//       console.log(data);
-//     });
-
-//   })
-
-// })

@@ -2,7 +2,7 @@ const request = require('request')
 const assert = require('assert')
 var expect = require('expect.js')
 
-const endpoint = 'http://localhost:8080/';
+const endpoint = 'http://localhost:8080/api/';
 
 var throwRequestError = (e) => {
   switch(e.code){
@@ -47,6 +47,33 @@ describe('Rest API Tests', () => {
 
   /**
    * Sample input data of address book
+   */
+  describe('Add Contact (/insert) route', (done) => {
+    
+    const inputData = { phone: "+61434242334", name: 'Phil' }
+
+    it('should return an array of inserted data', (done) => {
+      // make the request
+      request.post({
+        uri: endpoint+'insert',
+        json: inputData
+      }, (e, resp, body) => {
+
+        // throw an error if e
+        if(e){
+          throwRequestError(e);
+        }
+        
+        assert.equal(resp.statusCode, 200)
+        expect(body).to.be.an(Array);
+        done();
+      });
+    });
+
+  })
+
+  /**
+   * Delete Address Book
    */
   describe('Add Contact (/insert) route', (done) => {
     

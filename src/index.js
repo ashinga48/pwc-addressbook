@@ -6,6 +6,15 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
 
+var exbars = require('exbars')
+app.engine('hbs', exbars({defaultLayout: 'main' , viewsPath: 'src/frontend/views'}));
+app.set('views', 'src/frontend/views');
+app.set('view engine', 'hbs');
+
+/** Expose public folder static files */
+// var path = require('path');
+// app.use('/static', express.static(path.join(__dirname, 'public')))
+
 app.use(bodyParser.json())
 
 /** Database */
@@ -14,42 +23,13 @@ const db = require('./db');
     db.load();
 })();
 
+/** REST API */
+require('./api')(app, db);
 
-/** 
- * default route '/' will return all contacts
- */
-app.get('/', async (req, res) => {
-    const data = await db.get();
-    res.send((data))
-});
+/** Initialise Frontend */
+require('./frontend')(app, db);
 
-
-/**
- * Handle GET or POST to /insert route
- * @param {
- *  phone : string,
- *  name  : string
- * } 
- */
-const addContact = async (req, res) => {
-    /**
-     * Get params from either GET or POST request
-     */
-    const params = Object.keys(req.body).length > 0 ? req.body : req.query;
-
-    /** 
-     * check if params is empty 
-     */
-    if(Object.keys(params).length <= 0){
-        return "No params sent";
-    }
-    
-    const result = await db.add( params.name, params.phone );
-    res.send(result);
-};
-app.post('/insert', addContact);
-app.get('/insert', addContact);
-
+/** Listen at port 8080 */
 app.listen(8080, () => {
   console.log('app listening on port 8080!')
 })

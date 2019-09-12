@@ -1,6 +1,6 @@
 # PwC Address book - Code Challenge
 
-## ScreenShots
+## Screenshots
 
 ## Setup
 
@@ -14,3 +14,10 @@
 - NodeJS on base with CSV Database handler
 - HandlebarJS for Templating
 - Testing using mocha & expect.js
+
+### REST API
+
+- HOME = http://localhost:8080/
+
+    - GET : All contacts ( HOME/api/ )
+    - POST : Insert Contact ( HOME/api/insert )

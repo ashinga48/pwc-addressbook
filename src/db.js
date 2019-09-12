@@ -1,6 +1,8 @@
 
 const csvdb = require('csv-database');
+const fs = require('fs');
 
+const DATABASE_NAME = "contacts.csv";
 /** 
  * Database class
  * 
@@ -20,7 +22,7 @@ class database {
      * init db with fields phone and name
      */
     async load() {
-        this.db = await csvdb("contacts.csv", ["phone","name"]);
+        this.db = await csvdb(DATABASE_NAME, ["phone","name"]);
         return true;
     }
 
@@ -81,6 +83,15 @@ class database {
         const params = { phone };
         const response = await this.db.delete(params);
         return response;
+    }
+
+    /**
+     * Remove database
+     */
+    async removeDatabase(){
+        await fs.unlinkSync(DATABASE_NAME);
+        return fs.closeSync(fs.openSync(DATABASE_NAME, 'w'))
+
     }
 
 }
